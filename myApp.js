@@ -24,11 +24,15 @@ app.get('/json', (req, res) => {
 
   res.json({ message });
 });
-app.get('/now', function(req, res, next) {
-    req.time = new Date().toUTCString();  
-    next();
-}, function(req, res) {
-    res.json({ time: req.time });
+const middleware = (req, res, next) => {
+  req.time = new Date().toString();
+  next();
+};
+
+app.get("/now", middleware, (req, res) => {
+  res.send({
+    time: req.time
+  });
 });
 
 module.exports = app;
