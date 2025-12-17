@@ -25,7 +25,7 @@ app.get('/json', (req, res) => {
   res.json({ message });
 });
 const middleware = (req, res, next) => {
-  req.time = new Date().toString();
+  req.time = new Date().toUTCString();
   next();
 };
 
