@@ -29,10 +29,8 @@ const middleware = (req, res, next) => {
   next();
 };
 
-app.get("/now", middleware, (req, res) => {
-  res.send({
-    time: req.time
-  });
+app.get('/now', middleware, (req, res) => {
+  res.json({ time: req.time });
 });
 
 module.exports = app;
