@@ -25,11 +25,10 @@ app.get('/json', (req, res) => {
   res.json({ message });
 });
 app.get('/now', function(req, res, next) {
-  req.time = new Date().toString();
-  
-  next();
+    req.time = new Date().toUTCString();  
+    next();
 }, function(req, res) {
-  res.json({ time: req.time });
+    res.json({ time: req.time });
 });
 
 module.exports = app;
