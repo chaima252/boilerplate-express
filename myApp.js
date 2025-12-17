@@ -4,7 +4,7 @@ let express = require("express");
 let app = express();
 
 
-console.log("Use the .env File");
+console.log("corrected env");
 app.use("/public", express.static(__dirname + "/public"));
 
 app.get("/", function (req, res) {
